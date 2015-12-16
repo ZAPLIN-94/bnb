@@ -1,0 +1,73 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    line-height: 1.5em;
+    font-size: 16px;
+    font-family: "Lantinghei SC","FZLanTingHei-R-GBK";
+}
+
+#top_img{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+#shopkeeper{
+    text-align: center;
+}
+#shopkeeper_img{
+    position: relative;
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;
+    border: 2px solid gainsboro;
+    top: -51.5px;
+    align-content: center;
+}
+#shopkeeper_name,#shopkeeper_name span{
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+}
+#shopkeeper_name{
+    bottom: 30px;
+}
+#intro{
+    position: relative;
+    margin: 0 22.5px 0 22.5px;
+    padding: 65px 0 65px 0;
+    background: #f5f6f5;
+
+}
+#mark1{
+    width: 55px;
+    position: absolute;
+    top: 0;
+    left:0;
+}
+#mark2{
+    width: 55px;
+    position: absolute;
+    bottom: 0;
+    right:0;
+}
+#intro_text{
+    padding: 0 15px 0 15px;
+    font-size: 14px;
+    color: #464646;
+    letter-spacing: 1.25px;
+    line-height: 1.75em;
+}
+#end_line{
+    position: relative;
+    top: 70px;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+#void{
+    position: relative;
+    top: 70px;
+    width: 100%;
+    height:10px;
+    background: white;
+}
