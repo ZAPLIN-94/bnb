@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <link href="css/bnbDetail.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/touchslide.1.1.js"></script>
+    <title>民宿详情页</title>
+</head>
+<body>
+<!--头部 包含头图、掌柜头像、距离、名称、是否喜欢、标签-->
+<header>
+    <div id="top_img">
+        <div class="hd">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <div class="bd">
+            <ul>
+                <li><img src="images/p1.jpeg" alt=""></li>
+                <li><img src="images/p2.jpeg" alt=""></li>
+                <li><img src="images/p3.jpeg" alt=""></li>
+                <li><img src="images/p4.jpeg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <p id="top_img_index"><span>1</span> / <span>4</span></p>
+    <a href="#"><img class="shopkeeper_img" src="images/shopkeeper.jpg"></a>
+    <div id="intro">
+        <div id="distance">
+            <img id="distance_icon" src="images/icon-add.png">
+            <p id="distance_unit">距离<span>1000</span>公里</p>
+        </div>
+        <h1>莫干山丨云溪上精品民宿</h1>
+
+        <ul id="like">
+            <li class="want"><img src="images/want.png"/><p>想去 [ <span>5</span> ]</p></li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="gap_1">丨</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="togo"><img src="images/gone.png"/><p>去过 [ <span>5</span> ]</p></li>
+        </ul>
+        <div id="tips">
+            <ul>
+                <li>回归生活品质</li>
+                <li>亲子</li>
+                <li>杭州周边</li>
+                <li>青山绿水</li>
+                <li>回归</li>
+                <li>亲子</li>
+                <li>杭州周边</li>
+                <li>青山绿水</li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--内容主体 包含印象、房型-->
+<article>
+    <div id="nav">
+        <div id="yinxiang" class="select">印象</div>
+        <div id="fangxing">房型</div>
+    </div>
+    <div id="content">
+        <!--印象-->
+        <div id="content_1">
+            <!--图文介绍-->
+            <div id="h5body">
+                <img src="images/p4.jpeg">
+                <p>淡季的莫干山,褪去奔流的人群,多了几份宁静.沿着一条蜿蜒的小路,两边竹影婆娑.穿过竹林,出现独具匠心的白色房子,就是云溪上.灵气的名字正衬合这个诗意隐隐的江南碧坞.</p>
+                <img src="images/p2.jpeg">
+                <p>淡季的莫干山,褪去奔流的人群,多了几份宁静.沿着一条蜿蜒的小路,两边竹影婆娑.穿过竹林,出现独具匠心的白色房子,就是云溪上.灵气的名字正衬合这个诗意隐隐的江南碧坞.</p>
+                <img src="images/p3.jpeg">
+                <p>淡季的莫干山,褪去奔流的人群,多了几份宁静.沿着一条蜿蜒的小路,两边竹影婆娑.穿过竹林,出现独具匠心的白色房子,就是云溪上.灵气的名字正衬合这个诗意隐隐的江南碧坞.</p>
+            </div>
+            <!--地图信息、联系方式-->
+            <div id="info">
+                <img id="map" src="#">
+                <ul id="address">
+                    <li><img src="images/icon-add.png">&nbsp; &nbsp; 浙江省杭州市文一西路西溪湿地北门302号</li>
+                    <li><img src="images/icon-tel.png">&nbsp; &nbsp; 0571-86765612</li>
+                </ul>
+            </div>
+            <div class="gap"></div>
+            <!--掌柜详情-->
+            <div id="shopkeeper_detail">
+                <a href="#"><img class="shopkeeper_img" src="images/shopkeeper.jpg"></a>
+            </div>
+            <p id="shopkeeper_name">掌柜: <span>余老板</span></p>
+            <p id="shopkeeper_intro" class="hidden">一二三四五六七八九十,二二三四五六七八九十,三二三四五六七八九十,四二三四五六七八九十,五二三四五六七八九十,六二三四五六七八九十,七二三四五六七八九十,八二三四五六七八九十,一二三四五六七八九十,二二三四五六七八九十,三二三四五六七八九十,四二三四五六七八九十,五二三四五六七八九十,六二三四五六七八九十,七二三四五六七八九十</p>
+            <div id="more">
+                <p>查看全部</p>
+                <img src="images/down.png">
+            </div>
+            <div class="gap"></div>
+            <!--猜你喜欢-->
+            <p id="title_guess">- 猜你喜欢 -</p>
+            <a href="#">
+                <div class="prom_list">
+                    <img src="images/p4.jpeg" class="prom_img">
+                    <p class="prom_title">优惠标题上海绿城玫瑰园住三付二上海绿城玫瑰园住三付二</p>
+                    <p class="prom_price">3888<span> 起/<span class="prom_unit"></span>晚</span></p>
+                </div>
+            </a>
+            <div class="gap_2"></div>
+            <a href="#">
+                <div class="prom_list">
+                    <img src="images/p4.jpeg" class="prom_img">
+                    <p class="prom_title">优惠标题上海绿城玫瑰园住三付二上海绿城玫瑰园住三付二</p>
+                    <p class="prom_price">3888<span> 起/<span class="prom_unit">3</span>晚</span></p>
+                </div>
+            </a>
+            <div class="gap_2"></div>
+            <a href="#">
+                <div class="prom_list">
+                    <img src="images/p4.jpeg" class="prom_img">
+                    <p class="prom_title">优惠标题上海绿城玫瑰园住三付二上海绿城玫瑰园住三付二</p>
+                    <p class="prom_price">3888<span> 起/<span class="prom_unit">2</span>晚</span></p>
+                </div>
+            </a>
+            <img id="end_line" src="images/TheEnd.png">
+        </div>
+        <!--房型-->
+        <div id="content_2" class="unselect">
+            <div class="type">
+                <img class="type_img" src="images/p1.jpeg">
+                <div>
+                    <p class="type_name">豪华湖景房</p>
+                    <p class="type_price">参考价:&nbsp;<span class="type_number">3888</span><span>&nbsp;起/<span class="type_unit"></span>晚</span></p>
+                </div>
+                <p class="type_intro">文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.</p>
+            </div>
+            <div class="type">
+                <img class="type_img" src="images/p2.jpeg">
+                <div>
+                    <p class="type_name">豪华湖景房</p>
+                    <p class="type_price">参考价:&nbsp;<span class="type_number">3888</span><span>&nbsp;起/<span class="type_unit"></span>晚</span></p>
+                </div>
+                <p class="type_intro">文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.</p>
+            </div>
+            <div class="type">
+                <img class="type_img" src="images/p3.jpeg">
+                <div>
+                    <p class="type_name">豪华湖景房</p>
+                    <p class="type_price">参考价:&nbsp;<span class="type_number">3888</span><span>&nbsp;起/<span class="type_unit"></span>晚</span></p>
+                </div>
+                <p class="type_intro">文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.文本,编辑自动编辑描述文本.</p>
+            </div>
+            <div class="gap_3"></div>
+        </div>
+    </div>
+</article>
+<!--导购条-->
+<footer>
+    <p class="price">3888<span> 起/<span class="prom_unit"></span> 晚</span></p>
+    <button>订 购</button>
+</footer>
+
+<script type="text/javascript" src="js/bnbDetail.js"></script>
+</body>
+</html>

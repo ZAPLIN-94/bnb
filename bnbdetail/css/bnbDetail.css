@@ -1,0 +1,326 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    line-height: 1.5em;
+    font-family: "Lantinghei SC","FZLanTingHei-R-GBK";
+    list-style: none;
+    border:none;
+}
+header{
+    position: relative;
+}
+.unselect,.hd{
+    display: none;
+}
+.bd ul li img{
+    position: relative;
+    width: 100%;
+    height: 20.625rem;
+}
+#top_img_index{
+    color: #FFFFFF;
+    font-size: 0.9375rem;
+    position: absolute !important;
+    left:1.2rem;
+    top: 18.5rem;
+}
+.shopkeeper_img{
+    position: relative;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 100%;
+    border: 1px solid gainsboro;
+}
+header a{
+    position: absolute;
+    right:1rem;
+    top:19rem;
+}
+#distance{
+    /*width: 100px;*/
+    position: relative;
+    left: 0.8rem;
+    top: 0;
+}
+#distance_icon{
+    position: relative;
+    width: auto;
+    height: 1rem;
+
+}
+#distance_unit{
+    position: relative;
+    font-size: 0.8rem;
+    color: #808080;
+    display: inline;
+    top:-0.1rem;
+}
+#intro h1{
+    position: relative;
+    top:0.8rem;
+    font-family: "微软雅黑";
+    font-size: 1.125rem;
+    color: #000000;
+    text-align: center;
+}
+#like{
+    position: relative;
+    top:0.8rem;
+    color: #808080;
+    font-size: 0.8rem;
+    text-align: center;
+
+}
+#like *{
+    display: inline;
+    position: relative;
+}
+#like img{
+    width: auto;
+    height: 1.8rem;
+    top:0.5rem;
+}
+.gap_1{
+    position: relative;
+    font-size: 1.25rem;
+    top: 0.2rem;
+    color: #808080;
+}
+#tips{
+    text-align: center;
+    padding: 0.75rem;
+    margin: 1.8rem 0 0 0;
+}
+#tips ul li{
+    /*position: relative;*/
+    float: left;
+    display: inline;
+    border: 1px solid #808080;
+    -moz-border-radius:1rem;
+    -webkit-border-radius:1rem;
+    border-radius:1rem;
+    font-size: 0.75rem;
+    color: #808080;
+    margin: 0.15rem 0.375rem;
+    padding: 0 0.75rem;
+}
+
+article{
+    clear: both;
+    position: relative;
+    top: 1rem;
+}
+#nav{
+    width: 92%;
+    position: relative;
+    margin: 1rem auto 0.5rem auto;
+}
+#nav div{
+    width: 50%;
+    text-align: center;
+    border-top: 2px solid #e1e3e6;
+    color: #969899;
+    font-size: 0.9375rem;
+    padding: 0.5rem 0;
+    /*moz-user-select: -moz-none;*/
+    /*-moz-user-select: none;*/
+    /*-o-user-select:none;*/
+    /*-khtml-user-select:none;*/
+    /*-webkit-user-select:none;*/
+    /*-ms-user-select:none;*/
+    /*user-select:none;*/
+}
+#fangxing{
+    position: absolute;
+    top:0;
+    right: 0;
+}
+div#nav div.select{
+    color: #000000;
+    border-top: 2px solid #4a4a4a;
+}
+
+#content{
+    position: relative;
+    width: 100%;
+}
+#h5body{
+    position: relative;
+    top: 2px;
+    width: 92%;
+    margin: 0 4%;
+    font-size: 0.875rem;
+    color: #4d4d4d;
+}
+#h5body *{
+    width: 100%;
+    margin: 0.35rem 0;
+}
+#map{
+    margin-top: 1rem;
+    width: 100%;
+}
+#address img{
+    position: relative;
+    top: 0.1rem;
+    width: auto;
+    height: 1rem;
+}
+#address li{
+    font-size: 0.8rem;
+    color: #808080;
+    margin: 0.5rem 1rem;
+}
+.gap{
+    width: 100%;
+    height: 0.625rem;
+    background-color: #ebedf0;
+}
+#shopkeeper_detail{
+    text-align: center;
+}
+#shopkeeper_detail img{
+    width: 6.25rem;
+    height: 6.25rem;
+    margin-top: 2rem;
+    border:2px solid gainsboro;
+}
+#shopkeeper_name{
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    color: #808080;
+}
+#shopkeeper_intro{
+    margin: 1.5rem 2.375rem;
+    font-size: 0.875rem;
+    color: #808080;
+}
+.hidden{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+#more{
+    position: relative;
+    text-align: center;
+    margin: 0 0 2rem 0;
+}
+#more *{
+    display: inline;
+}
+#more p{
+    font-size: 0.875rem;
+    color: #d2404d;
+}
+#title_guess{
+    font-size: 1.125rem;
+    text-align: center;
+    margin-top: 1.75rem;
+}
+.gap_2{
+    width: 94%;
+    height: 1px;
+    border-top: 1px solid #ebedf0;
+    margin: auto;
+}
+.prom_list{
+    position: relative;
+    padding: 1rem 0.625rem;
+}
+.prom_img{
+    position: relative;
+    width: 48%;
+    height: 6.875rem;
+}
+.prom_title{
+    position: absolute;
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    width: 45.6%;
+    top: 1rem;
+    right: 0.625rem;
+}
+.prom_price{
+    position: absolute;
+    bottom: 1.2rem;
+    right: 3.5rem;
+    font-size: 0.875rem;
+    color: #d2404d;
+}
+.prom_price span{
+    font-size: 12px;
+}
+#end_line{
+    width: 100%;
+    margin: 1rem 0 4rem 0;
+}
+.type{
+    position: relative;
+    margin: 1rem 4%;
+}
+.type div{
+    position: relative;
+}
+.type_img{
+    width: 100%;
+}
+.type_name{
+    font-size: 0.9375rem;
+    color: #000000;
+    margin: 0.25rem;
+}
+.type_price{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.75rem;
+    color: #808080;
+    margin: -0.25rem 0.5rem;
+}
+.type_number{
+    font-size: 1.125rem;
+    color: #000000;
+}
+.type_intro{
+    border-top: 1px dotted #808080;
+    padding: 1rem 0 0.25rem 0;
+    font-size: 0.875rem;
+    color: #4a4a4a;
+    letter-spacing:1.5px;
+}
+footer{
+    width: 100%;
+    border-top: 1px solid #ebedf0;
+    position: fixed;
+    bottom: 0;
+    background: white;
+}
+p.price{
+    font-size: 18px;
+    color: #d2404d;
+    margin: 1rem 3.5rem;
+}
+p.price span{
+    font-size: 12px;
+}
+button{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 7.5rem;
+    height: 2.5rem;
+    background: #d2404d;
+    border-radius: 0.25rem;
+    border: none;
+    color: white;
+    margin: 0.5rem;
+    font-size: 14px;
+}
+.gap_3{
+    width: 100%;
+    height: 3rem;
+}
+

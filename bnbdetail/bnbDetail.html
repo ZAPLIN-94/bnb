@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <link href="css/bnbDetail.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/touchslide.1.1.js"></script>
+    <title>民宿详情页</title>
+</head>
+<body>
+<!--头部 包含头图、掌柜头像、距离、名称、是否喜欢、标签-->
+<header>
+    <div id="top_img">
+        <div class="hd">
+            <ul>
+
+            </ul>
+        </div>
+        <div class="bd">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <p id="top_img_index"><span>1</span> / <span></span></p>
+    <a class="shopkeeper_detail" href="#"><img class="shopkeeper_img" src="#"></a>
+    <div id="intro">
+        <div id="distance">
+            <img id="distance_icon" src="images/icon-add.png">
+            <p id="distance_unit"></p>
+        </div>
+        <h1></h1>
+
+        <ul id="like">
+            <li class="want"><img src="#"/><p>想去 [ <span></span> ]</p></li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="gap_1">丨</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="togo"><img src="#"/><p>去过 [ <span></span> ]</p></li>
+        </ul>
+        <div id="tips">
+            <ul>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--内容主体 包含印象、房型-->
+<article>
+    <div id="nav">
+        <div id="yinxiang" class="select">印象</div>
+        <div id="fangxing">房型</div>
+    </div>
+    <div id="content">
+        <!--印象-->
+        <div id="content_1">
+            <!--图文介绍-->
+            <div id="h5body">
+
+            </div>
+            <!--地图信息、联系方式-->
+            <div id="info">
+                <img id="map" src="#">
+                <ul id="address">
+                    <li><img src="images/icon-add.png">&nbsp; &nbsp; </li>
+                    <li><img src="images/icon-tel.png">&nbsp; &nbsp; </li>
+                </ul>
+            </div>
+            <div class="gap"></div>
+            <!--掌柜详情-->
+            <div id="shopkeeper_detail">
+                <a class="shopkeeper_detail" href="#"><img class="shopkeeper_img" src="#"></a>
+            </div>
+            <p id="shopkeeper_name">掌柜: <span></span></p>
+            <p id="shopkeeper_intro" class="hidden"></p>
+            <div id="more">
+                <p>查看全部</p>
+                <img src="images/down.png">
+            </div>
+            <div class="gap"></div>
+            <!--猜你喜欢-->
+            <p id="title_guess">- 猜你喜欢 -</p>
+            <a href="#">
+                <div class="prom_list">
+                    <img src="#" class="prom_img">
+                    <p class="prom_title"></p>
+                    <p class="prom_price"><span> 起/<span class="prom_unit"></span>晚</span></p>
+                </div>
+            </a>
+            <div class="gap_2"></div>
+            <img id="end_line" src="images/TheEnd.png">
+        </div>
+        <!--房型-->
+        <div id="content_2" class="unselect">
+            <!--<div class="type">-->
+                <!--<img class="type_img" src="">-->
+                <!--<div>-->
+                    <!--<p class="type_name"></p>-->
+                    <!--<p class="type_price">参考价:&nbsp;<span class="type_number"></span><span>&nbsp;起/<span class="type_unit"></span>晚</span></p>-->
+                <!--</div>-->
+                <!--<p class="type_intro"></p>-->
+            <!--</div>-->
+            <!--<div class="gap_3"></div>-->
+        </div>
+    </div>
+</article>
+<!--导购条-->
+<footer>
+    <p class="price"><span> 起/<span class="prom_unit"></span> 晚</span></p>
+    <button>订 购</button>
+</footer>
+
+<script type="text/javascript" src="js/bnbDetail.js"></script>
+</body>
+</html>

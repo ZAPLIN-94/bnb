@@ -39,12 +39,18 @@ id =r.substring(r.lastIndexOf('=')+1, r.length);
 $(document).ready(function(){
     $.ajax({
         type: 'POST',
-        url: '#',
-        data: {data:'{"id":'+id+'}'},
+        url: 'http://dev.jihelife.com/content/client/hotel/owner',
+        data: {data:'{"id":'+3365+'}'},
         dataType: 'json',
         async:false,
-        success:function(data){},
-        error:function(){},
+        success:function(data){
+            $("#top_img").attr("src",data.data.hotelBaseInfo.hotelImgs);
+            $("#shopkeeper_img").attr("src",data.data.hotelOwnerInfo.headimgurl);
+            $("#shopkeeper_name span").append(data.data.hotelOwnerInfo.name);
+            $("#intro_text").append(data.data.hotelBaseInfo.brief);
+        },
+        error:function(){
+        },
         }
     );
 });
