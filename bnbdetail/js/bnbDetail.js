@@ -1,40 +1,43 @@
-//判断设备
-var u = navigator.userAgent, app = navigator.appVersion;
+//匹配header签名&&评论的展示
+function Person() {
+    var requestData = "";
+    this.setRequestData = function (_requestData) {
+        requestData = _requestData;
+    };
+    this.getRequestData = function () {
+        return requestData;
+    };
+    this.requestCommit = function (allUrl, allData) {
+        var testHeader = jihe.getHeaderData(allData);
+        var testHeaderB = decodeURIComponent(testHeader);
+        var obj = eval("(" +testHeaderB + ")");
+        $.ajax({
+            type: 'POST',
+            url: allUrl,
+            async: false,
+            data: {data: allData},
+            beforeSend: function (XMLHttpRequest) {
+                XMLHttpRequest.setRequestHeader('apiversion', ''+obj.apiversion )
+                XMLHttpRequest.setRequestHeader('channel', ''+obj.channel)
+                XMLHttpRequest.setRequestHeader('location', ''+obj.location)
+                XMLHttpRequest.setRequestHeader('userid', ''+obj.userid)
+                XMLHttpRequest.setRequestHeader('uuid', ''+obj.uuid)
+                XMLHttpRequest.setRequestHeader('sign', ''+obj.sign)
+                /*XMLHttpRequest.setRequestHeader('apiversion', '2.0')
+                 XMLHttpRequest.setRequestHeader('channel', 'HuaWei@android_2.0')
+                 XMLHttpRequest.setRequestHeader('location', '120.073086,30.282003')
+                 XMLHttpRequest.setRequestHeader('userid', '7')
+                 XMLHttpRequest.setRequestHeader('uuid', '4bfa4ee1a806059b')
+                 XMLHttpRequest.setRequestHeader('sign', '11ce05ac015bf548d1c21986bee8166d')*/
+            },
+            success: function (data) {
+                requestData = (data);
+            }
+        })
 
-var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
-var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 
-//url处理 获取id
-var url = location.href;
-host='http://'+window.location.host;
-root=window.location.pathname;
-h=$("div.list:last").find(window).height();
-function getParameter(paraStr, url) {
-    var result = "";
-    //获取URL中全部参数列表数据
-    var str = "&" + url.split("?")[1];
-    /*var stri=url.split("?")[1];
-     alert(stri);*/
-    var paraName = paraStr + "=";
-    //判断要获取的参数是否存在
-    if(str.indexOf("&"+paraName)!=-1) {
-        //如果要获取的参数到结尾是否还包含“&”
-        if(str.substring(str.indexOf(paraName),str.length).indexOf("&")!=-1) {
-            //得到要获取的参数到结尾的字符串
-            var TmpStr=str.substring(str.indexOf(paraName),str.length);
-            //截取从参数开始到最近的“&”出现位置间的字符
-            result=TmpStr.substr(TmpStr.indexOf(paraName),TmpStr.indexOf("&")-TmpStr.indexOf(paraName));
-        } else {
-            result=str.substring(str.indexOf(paraName),str.length);
-        }
-    } else {
-        result="无此参数";
     }
-    return (result.replace("&",""));
 }
-var r = getParameter("id",url);
-id =r.substring(r.lastIndexOf('=')+1, r.length);
-
 
 //切换印象和房型
 $(document).ready(function(){
@@ -145,22 +148,23 @@ $(document).ready(function(){
             }
             $("#content_2").append("<div class=\"gap_3\"></div>");
         },
-        error: function () {
-            
-        }
+        error: function () {}
     })
 });
 
-//首图滑动效果
-var topImgIndex = function(){
-    var index = $("li.on").text();
-    $("#top_img_index").find("span").eq(0).text(index);
-};
 
-$(document).ready(function(){
-    TouchSlide({ slideCell:"#top_img",titCell:".hd li",mainCell:".bd ul"});
-    setInterval("topImgIndex()",800);
-});
+var paramHotelWant = '{"id":"' + id + '","type":"1"}';
+var urlHotelWant =  "/leapp/le.user.like";
+var paramHotelLike = '{"id":"' + id + '","type":"2"}';
+var urlHotelLike =  "/leapp/le.user.like";
+$(".togo").click(function(){
+    androidToGo(urlHotelWant,paramHotelWant)
+
+})
+$(".want").click(function(){
+    androidWantTo(urlHotelLike,paramHotelLike)
+
+})
 
 //点赞接口1是去过 2是想去 3是喜欢
 function iOSChangLikeCount(urlLike,dataLike) {
@@ -176,7 +180,7 @@ function iOSChangLikeCount(urlLike,dataLike) {
 }
 function androidChangLikeCount( urlLike,dataLike) {
     var person = new Person();
-    person.requestCommit(urlLike, dataLike)
+    person.requestCommit(urlLike, dataLike);
     if (person.getRequestData().data.likeStatus> 0) {
         $(".proLike i").addClass("likeCurrent");
     } else {
@@ -185,7 +189,7 @@ function androidChangLikeCount( urlLike,dataLike) {
 }
 function androidToGo(urlHotelWant,paramHotelWant){
     var person = new Person();
-    person.requestCommit(urlHotelWant, paramHotelWant)
+    person.requestCommit(urlHotelWant, paramHotelWant);
     $(".togo b").html(person.getRequestData().data.goToCount);
     if(person.getRequestData().data.goToStatus==0){
         $(".togo i").removeClass("togoCurrent");
@@ -253,6 +257,17 @@ function comment(){
     }
 
 }
+
+//首图滑动效果
+var topImgIndex = function(){
+    var index = $("li.on").text();
+    $("#top_img_index").find("span").eq(0).text(index);
+};
+
+$(document).ready(function(){
+    TouchSlide({ slideCell:"#top_img",titCell:".hd li",mainCell:".bd ul"});
+    setInterval("topImgIndex()",800);
+});
 
 
 

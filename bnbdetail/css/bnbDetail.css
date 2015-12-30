@@ -9,7 +9,7 @@
 header{
     position: relative;
 }
-.unselect,.hd{
+.unselect,.hd,.disappear{
     display: none;
 }
 .bd ul li img{
@@ -37,7 +37,7 @@ header a{
     top:19rem;
 }
 #distance{
-    /*width: 100px;*/
+    width: 80%;
     position: relative;
     left: 0.8rem;
     top: 0;
@@ -323,4 +323,46 @@ button{
     width: 100%;
     height: 3rem;
 }
-
+#tanchuang_box{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+}
+#tanchuang_background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    background: rgba(55,55,55,0.8);
+    z-index: 10;
+}
+#tanchuang{
+    position: relative;
+    top:100px;
+    left:0;
+    width: 300px;
+    height: 300px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 20;
+}
+#tanchuang p{
+    position: relative;
+    top: -25px;
+}
+#tanchuang_img{
+    overflow: visible;
+    position: relative;
+    top:-50px;
+    width: 185px;
+    height: auto;
+}
+#tanchuang_booking{
+    position: relative;
+    width: 200px;
+    height: 40px;
+}
