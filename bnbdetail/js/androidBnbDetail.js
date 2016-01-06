@@ -40,6 +40,7 @@ function Device() {
                     XMLHttpRequest.setRequestHeader('sign', ''+obj.sign)
                 },
                 success: function (data) {
+                    document.title= data.data.hotelBaseInfo.hotelCname;
                     var imgList = data.data.productBaseInfo.imgList;
                     var productName = data.data.productBaseInfo.productName;
                     var distance = data.data.hotelBaseInfo.distanceDesc;
@@ -73,7 +74,7 @@ function Device() {
                     }else {
                         $("#like .want img").attr("src","../h5_2.0/images/star.png");
                     }
-                    if(data.data.hotelBaseInfo.userFavorites[1].status == 0){
+                    if(data.data.hotelBaseInfo.userFavorites[0].status == 0){
                         $("#like .togo img").attr("src","../h5_2.0/images/ungone.png");
                     }else {
                         $("#like .togo img").attr("src","../h5_2.0/images/gone.png");
@@ -113,6 +114,9 @@ function Device() {
                             $(".prom_title:last").append(recommendPromotions[n].productName);
                             $(".prom_price:last").prepend(recommendPromotions[n].price);
                         }
+                    }else{
+                        $("#title_guess").remove();
+                        $(".gap").eq(1).remove();
                     }
                     $("#content_1").append("<img id=\"end_line\" src=\"../h5_2.0/images/TheEnd.png\">");
                     //房型

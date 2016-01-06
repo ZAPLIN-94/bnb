@@ -21,7 +21,6 @@ $(document).ready(function(){
             $("#more p").html("查看全部");
             $("#more img").attr("src","../h5_2.0/images/down.png");
         }
-
     });
 });
 
@@ -86,6 +85,7 @@ if(isAndroid) {
             dataType: 'json',
             async:false,
             success: function (data) {
+                document.title= data.data.hotelBaseInfo.hotelCname;
                 var imgList = data.data.productBaseInfo.imgList;
                 var productName = data.data.productBaseInfo.productName;
                 var distance = data.data.hotelBaseInfo.distanceDesc;
@@ -100,6 +100,14 @@ if(isAndroid) {
                 var name = data.data.hotelBaseInfo.hotelOwner.name;
                 var roomList = data.data.hotelBaseInfo.roomList;
                 var recommendPromotions = data.data.hotelBaseInfo.recommendPromotions;
+                //首图
+                $("#top_img_index").find("span").eq(1).append(imgList.length);
+                for(var i= 0;i<imgList.length;i++){
+                    var j=i+1;
+                    $(".hd ul").append("<li>"+j+"</li>");
+                    $(".bd ul").append("<li><img/></li>");
+                    $(".bd ul").find("img").eq(i).attr("src",imgList[i]);
+                }
                 //header信息
                 $("#intro h1").append(productName);
                 $(".shopkeeper_img").attr("src",shopkeeper);
@@ -151,6 +159,9 @@ if(isAndroid) {
                         $(".prom_title:last").append(recommendPromotions[n].productName);
                         $(".prom_price:last").prepend(recommendPromotions[n].price);
                     }
+                }else{
+                    $("#title_guess").remove();
+                    $(".gap").eq(1).remove();
                 }
                 $("#content_1").append("<img id=\"end_line\" src=\"../h5_2.0/images/TheEnd.png\">");
                 //房型

@@ -754,6 +754,7 @@ $(document).ready(function(){
 		}else {
 			$("#content_1").addClass("unselect");
 		};
+		myScroll.refresh();
 	});
 
 	$("#more").click(function(){
@@ -766,6 +767,6 @@ $(document).ready(function(){
 			$("#more p").html("查看全部");
 			$("#more img").attr("src","../h5_2.0/images/down.png");
 		}
-
+		myScroll.refresh();
 	});
 });
