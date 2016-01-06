@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+<title></title>
+
+<link rel="stylesheet" type="text/css" href="../h5_2.0/scrollbar.css">
+<link rel="stylesheet" type="text/css" href="../h5_2.0/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../h5_2.0/css/comment.css"/>
+<link rel="stylesheet" type="text/css" href="../h5_2.0/css/pro.css"/>
+<link rel="stylesheet" type="text/css" href="../h5_2.0/css/hotel.css"/>
+<link rel="shortcut icon" href="http://a.tbcdn.cn/s/kissy/favicon.ico" type="image/x-icon">
+<script src="../h5_2.0/js/jquery-1.4.2.js"></script>
+<script src="../h5_2.0/js/js.js"></script>
+<script src="../h5_2.0/js/hostAll.js" type="text/javascript" charset="utf-8"></script>
+<script src="../h5_2.0/js/ask.js" type="text/javascript" charset="utf-8"></script>
+<script src="../h5_2.0/js/activeShare.js" type="text/javascript" charset="utf-8"></script>
+<script src="../h5_2.0/js/touchslide.1.1.js" type="text/javascript" charset="utf-8"></script>
+<script type="application/javascript" src="../h5_2.0/iscroll.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".proFooter .footerRight").click(function(event) {
+               window.location="/h5_2.0/tiao.html?id="+id+"&act=toRecommend"
+            });
+
+  });
+</script>
+
+</head>
+<body>
+
+<div id="header"></div>
+<div id="wrapper">
+  <div id="scroller">
+
+    <div id="pullDown">
+      <div class="pulls">
+        <span class="pullDownLabel"></span>
+      </div>
+    </div>
+    
+    
+        <div id="thelist">
+      <!--<div class="pro">-->
+     <header>
+    <div id="focus" class="focus">
+        <div class="hd">
+            <ul>
+            </ul>
+        </div>
+        <div class="bd">
+            <ul>
+            </ul>
+        </div>
+        <div class="status"></div>
+    </div>
+
+    <span class="icon"></span>
+    <span class="time">8</span>
+    <span class="dist">某某某某某某市中心1000公里</span>
+  </header>
+  <dl class="titleWrap">
+    <dt class="title"></dt>
+    <dd class="proLike">
+      <i></i><span>收藏</span>
+    </dd>
+  </dl>
+  <div class="grade"></div>
+  <div class="highLights">
+    <h2>优惠亮点</h2>
+    <div class="highLightsContent">素有“江南福地”美誉的常熟拥有深厚的历史文化积淀，生态优良、景致旖旎的尚湖与峰峦回环、林木葱郁的虞山交相辉映，共同绘出了一幅秀美的山水风景图，城内更有亭台楼阁与古典园林等历史遗迹彰显人文风采。<br><br>本优惠仅需 ￥788，即可升级入住 1 晚豪华房，每日前 2 名预订免费升级至豪华套房，享受双人早餐、双人自助晚餐、高尔夫球体验等礼遇，另有 ￥1,399 的 2 晚套餐可选，额外包含 2 张景区门票。入住有效至11月10日，周末全部通用不加价！</div>
+    <div class="btn" id="btn1"><span>展开全部</span><i class="iconfont">&#xe619;</i></div>
+  </div>
+  <div class="ota">
+    <div class="otaPrice" >酒店参考价：<span>3000 起 / 晚</span><i class="iconfont">&#xe640;</i></div>
+  </div>
+  <div class="promotionEquity">
+    <h2>优惠内容</h2>
+    <ul></ul>
+    <div class="btn" id="btn2"><span>展开全部</span><i class="iconfont">&#xe619;</i></div>
+  </div>
+  <div class="conditionList">
+    <h2>优惠条件</h2>
+    <ul>
+    </ul>
+  </div>
+  <div class="promTime">
+    <h2>优惠时间</h2>
+    <ul>
+      <li><strong>预订时间：</strong><span class="yuding">2015.06.30--2015.08.12</span></li>
+      <li><strong>入住时间：</strong><span class="ruzhu">即日起至7月30日，周末价格1198</span></li>
+    </ul>
+  </div>
+  <div class="promComment">
+    <h2>优惠评论 [ <span>10</span> ]</h2>
+    <div class="promCommentWrap">
+
+    </div>
+
+    <div class="btn" id="btn4" onclick="comment()"><span>查看全部评论</span><i class="iconfont">&#xe640;</i></div>
+  </div>
+      <div class="proHotelPng"><img src="../h5_2.0/images/leapp_tuo.png" alt=""></div>
+      
+    </div>
+
+    <div id="other" style="display:none">
+      <!--酒店详情-->
+      <div class="hotelDetail">
+        <div class="content">
+          <h1></h1>
+          <ul class="like">
+            <li class="want"><i></i>想去 [ <b>5</b> ]</li>
+            <li class="togo"><i></i>去过 [ <b>5</b> ]</li>
+          </ul>
+          <div class="detail"></div>
+
+        </div>
+        <div class="map">
+          <div class="mapPic" id="mapPic"><img /></div>
+        </div>
+        <p class="address"></p>
+        <p class="phone"></p>
+        <div class="proFooterTop"></div>
+        <div class="Promotion">
+        </div>
+        <div class="proFooterEnd"></div>
+      </div>
+    </div>
+
+    
+    <div id="pullUp">
+      <div class="pulls">
+        <span class="pullUpLabel"></span>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<div id="footer" class="proFooter">
+  <div class="footerLeft">8</div>
+    <div class="footerCenter" ><span class="yuanJia">2888 起/3晚</span><span class="plusJia"></span><span class="proJia"><i>3888</i>起/<em>3晚</em></span></div>
+    <div class="footerRight" >如何预订?</div>
+</div>
+<script type="text/javascript">
+
+  var myScroll,
+      pullDownEl,
+      pullDownOffset,
+      pullUpEl, 
+      pullUpOffset,
+      generatedCount = 0;
+
+  /****** 下拉刷新 ******/
+  function pullDownAction () {
+      
+      $("#thelist").show();
+      /*$("#thelist").slideUp();*/
+      /*$("#other").hide();*/
+      
+      myScroll.refresh();   //数据加载完成后，调用界面更新方法
+
+  }
+
+  /****** 上拉加载  ******/
+  function pullUpAction () {
+
+      $("#other").show();
+     /*$("#other").slideUp();*/
+    /* $("#thelist").hide();*/
+
+      myScroll.refresh(); // 数据加载完成后，调用界面更新方法
+
+  }
+
+  /**
+   * 初始化iScroll控件
+   */
+  function loaded() {
+    pullDownEl = document.getElementById('pullDown');
+    pullDownOffset = pullDownEl.offsetHeight;
+    pullUpEl = document.getElementById('pullUp');
+    pullUpOffset = pullUpEl.offsetHeight;
+    
+    setTimeout(function(){
+
+      myScroll = new iScroll('wrapper', {
+        scrollbarClass: 'myScrollbar', /* 重要样式 */
+        useTransition: false,
+        topOffset: pullDownOffset,
+        onRefresh: function () {
+          if (pullDownEl.className.match('loading')) {
+            pullDownEl.className = '';
+            pullDownEl.querySelector('.pullDownLabel').innerHTML = '';
+          } else if (pullUpEl.className.match('loading')) {
+            pullUpEl.className = '';
+            pullUpEl.querySelector('.pullUpLabel').innerHTML = '';
+          }
+        },
+        onScrollMove: function () {
+          if (this.y > 55 && !pullDownEl.className.match('flip')) {
+            pullDownEl.className = 'flip';
+            pullDownEl.querySelector('.pullDownLabel').innerHTML = '';
+            $("#other").hide();
+           /* $("#other").hide();*/
+            /*$("#other").slideDown();*/
+            this.minScrollY = this.maxScrollY; //minScrollY 到顶部距离 
+            console.log("1:"+this.minScrollY);
+          } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+            pullDownEl.className = '';
+            pullDownEl.querySelector('.pullDownLabel').innerHTML = '';
+            this.minScrollY = -pullDownOffset;
+            console.log("2:"+-pullDownOffset+this.minScrollY);
+          } else if (this.y < (this.maxScrollY - 55) && !pullUpEl.className.match('flip')) {
+            pullUpEl.className = 'flip';
+            pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+            this.maxScrollY = 0;
+            $("#thelist").hide();
+            
+            /*$("#thelist").slideDown();*/
+            console.log("3:"+" this.maxScrollY: "+this.maxScrollY+" this.y: "+this.y);
+          } else if (this.y > (this.maxScrollY + 55) && pullUpEl.className.match('flip')) {
+            pullUpEl.className = '';
+            pullUpEl.querySelector('.pullUpLabel').innerHTML = '';
+            this.maxScrollY = pullUpOffset;console.log("4:"+pullUpOffset);
+          }
+        },
+        onScrollEnd: function () {
+          if (pullDownEl.className.match('flip')) {
+            pullDownEl.className = 'loading';
+            pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';        
+            pullDownAction(); // Execute custom function (ajax call?)
+          } else if (pullUpEl.className.match('flip')) {
+            pullUpEl.className = 'loading';
+            pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';        
+            pullUpAction(); // Execute custom function (ajax call?)
+          }
+        }
+      });
+
+    },500);
+    
+    setTimeout(function () { document.getElementById('wrapper').style.left = '0'; });
+  }
+
+  //初始化绑定iScroll控件 
+  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+  document.addEventListener('DOMContentLoaded', loaded, false); 
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+*{
+  line-height: 1.5em;
+}
+body{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+.content{
+	padding:0;
+}
+.detail img{
+  min-width: 100%;
+}
+.content h1{
+	text-align: center;
+	font-weight: normal;
+	margin:40px 0 20px;
+    font-size: 1.25rem;
+}
+.like {
+  width: 100%;
+  margin: 0 auto 20px;
+  padding: 5px 0;
+  height: 30px;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+}
+.like li {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+.like .want {
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_Line_grey.png) right center no-repeat;
+  -webkit-background-size: 1px 33px;
+  -moz-background-size: 1px 33px;
+  -ms-background-size: 1px 33px;
+  -o-background-size: 1px 33px;
+  background-size: 1px 33px;
+}
+.like i {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_like.png) 0 center no-repeat;
+  -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.like .wantCurrent {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_likeCurrent.png) 0 center no-repeat;
+ -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.like .togoCurrent {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_togoCurrent.png) 0 center no-repeat;
+   -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.togo i {
+  display: inline-block;
+  width: 30px;
+  height: 26px;
+  vertical-align: middle;
+  margin-top: -5px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_togo.png) 0 center no-repeat;
+  -webkit-background-size:30px;
+  -moz-background-size: 30px;
+  -ms-background-size: 30px;
+  -o-background-size:30px;
+  background-size: 30px;
+  margin-right: 7px;
+}
+.detail{
+  line-height: 2rem;
+}
+.detail p{
+  line-height: 1.5rem;
+}
+.mapPic img{
+ margin-top: 10px;
+  width:100%;
+  background:url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_loading.gif) center center no-repeat;
+}
+.address,.phone{
+  padding: 5px 15px;
+  color: #4a4a4a;
+  font-size: 12px;
+  line-height: 2px;
+}
+.address{
+  padding: 20px 15px 10px;
+}
+.address:before,.phone:before{
+  content:"";
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -5px;
+  width: 20px;
+  height: 15px;
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_distanceIcon.png) 0 bottom no-repeat;
+  -webkit-background-size: 13px;
+  background-size: 13px;
+
+
+}
+.phone:before{
+  background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_phone.png) 0 bottom no-repeat;
+  -webkit-background-size: 15px;
+  background-size: 15px;
+}
+.phone{
+  margin-bottom: 2rem ;
+}
+
+.Promotion dl{
+  padding: 10px 15px;
+  overflow: hidden;
+  height: 110px;
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-box;
+  display:-o-box;
+}
+.itemLeft{
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  min-width: 90%;
+  max-width: 90%;
+  height: 100%;
+  background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_alitrip.jpg) center center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.itemRight{
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  padding-left: 10px;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box;
+  position: relative;
+}
+.itemRight span{
+  display: block;
+  line-height: 20px;
+}
+.itemRightBottom{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%,0);
+  -webkit-transform: translate(-50%,0);
+  -moz-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  color: #d13f4c;
+
+}
+
+
+
+
+.hotelFooter{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  background-color: #fff;
+  padding: 7.5px 15px;
+  border-top: 1px solid #e1e3e6;
+  z-index: 99;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box;
+
+  /* position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height:3rem;
+  background-color: #fff;
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-box;
+  display:-o-box;
+  border-top: 1px solid #979797;
+  padding:5px 10px;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -o-box-sizing:border-box; */
+}
+.hotelFooter .footerRight{
+  height: 35px;
+  max-width: 120px;
+  line-height: 35px !important;
+  text-align: center;
+  background-color: #d13f4c;
+  color: #fff;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  -o-box-flex:1;
+  font-size: 14px;
+}
+.hotelFooter{
+  font-size: 14px;
+}
+.hotelFooter .origin{
+  font-size: 10px;
+  margin-top: -6px;
+  margin-bottom: 3px;
+}
+.footerLeft{
+  text-align: center;
+  -webkit-box-flex:3;
+  -moz-box-flex:3;
+  -ms-box-flex:3;
+  -o-box-flex:3;
+}
+.footerLeft span{
+  display: block; 
+  line-height: 18px;
+
+}
+.footerLeft span em{
+    font-size: 18px;
+    margin-right: 5px;
+}
+.footerRight{
+  text-align: right;
+  line-height: 2.3rem;
+}
+.footerRight span{
+  padding:10px 15px;
+  background-color: #ccc;
+} 
+.proFooterTop{
+    width: 100%;
+    padding-bottom:12.5px;
+    height:40px;
+    background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_about.png) center center no-repeat;
+    -webkit-background-size:contain;
+    background-size:contain;
+}
+.proFooterEnd{
+    width: 100%;
+    margin:40px 0 12.5px;
+    height:40px;
+    background: #fff url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_theEnd.png) center center no-repeat;
+    -webkit-background-size:contain;
+    background-size:contain;
+}
+
+/*修改部分*/
+/*标签*/
+
+.titleWrap{
+  border-bottom: none !important;
+  padding-bottom: 1rem !important;
+}
+.grade{
+  position: relative;
+  clear: both;
+  border-top: 1px dashed #cccccc;
+  padding: 1.2rem 0 0 0;
+}
+#tips{
+  float: left;
+  text-align: center;
+  padding: 0 0.75rem;
+  margin: 0 0 0 0;
+  width: 100%;
+}
+#tips ul{
+  float: left;
+  padding: 0.5rem 0 1rem 0;
+}
+#tips ul li{
+  /*position: relative;*/
+  float: left;
+  display: inline;
+  border: 1px solid #808080;
+  -moz-border-radius:1rem;
+  -webkit-border-radius:1rem;
+  border-radius:1rem;
+  font-size: 0.85rem;
+  color: #808080;
+  margin: 0.15rem 0.375rem;
+  padding: 0 0.75rem;
+}
+
+/*主体部分*/
+.shopkeeper_img {
+  position: relative;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 100%;
+  border: 1px solid gainsboro;
+}
+
+.unselect,.disappear{
+  display: none;
+}
+
+article{
+  clear: both;
+  position: relative;
+  top: 1rem;
+}
+#nav{
+  width: 92%;
+  position: relative;
+  margin: 1rem auto 0.5rem auto;
+}
+#nav div{
+  width: 50%;
+  text-align: center;
+  border-top: 2px solid #e1e3e6;
+  color: #969899;
+  font-size: 0.9375rem;
+  padding: 0.5rem 0;
+  /*moz-user-select: -moz-none;*/
+  /*-moz-user-select: none;*/
+  /*-o-user-select:none;*/
+  /*-khtml-user-select:none;*/
+  /*-webkit-user-select:none;*/
+  /*-ms-user-select:none;*/
+  /*user-select:none;*/
+}
+#fangxing{
+  position: absolute;
+  top:0;
+  right: 0;
+}
+div#nav div.select{
+  color: #000000;
+  border-top: 2px solid #4a4a4a;
+}
+#content{
+  position: relative;
+  width: 100%;
+}
+#h5body{
+  position: relative;
+  top: 2px;
+  width: 92%;
+  margin: 0 4%;
+  font-size: 0.875rem;
+  color: #4d4d4d;
+}
+#h5body *{
+  width: 100%;
+  margin: 0.35rem 0;
+}
+#map{
+  margin-top: 1rem;
+  width: 100%;
+}
+#address img{
+  position: relative;
+  top: 0.1rem;
+  width: auto;
+  height: 1rem;
+}
+#address li{
+  font-size: 0.8rem;
+  color: #808080;
+  margin: 0.5rem 1rem;
+}
+.gap{
+  width: 100%;
+  height: 0.625rem;
+  background-color: #ebedf0;
+}
+#shopkeeper_detail{
+  text-align: center;
+}
+#shopkeeper_detail img{
+  width: 6.25rem;
+  height: 6.25rem;
+  margin-top: 2rem;
+  border:2px solid gainsboro;
+}
+#shopkeeper_name{
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  color: #808080;
+}
+#shopkeeper_intro{
+  margin: 1.5rem 2.375rem;
+  font-size: 0.875rem;
+  color: #808080;
+}
+.hidden{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+#more{
+  position: relative;
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
+#more *{
+  display: inline;
+}
+#more p{
+  font-size: 0.875rem;
+  color: #d2404d;
+}
+#title_guess{
+  font-size: 1.125rem;
+  text-align: center;
+  margin-top: 1.75rem;
+}
+.gap_2{
+  width: 94%;
+  height: 1px;
+  border-top: 1px solid #ebedf0;
+  margin: auto;
+}
+.prom_list{
+  position: relative;
+  padding: 1rem 0.625rem;
+}
+.prom_img{
+  position: relative;
+  width: 48%;
+  height: 6.875rem;
+}
+.prom_title{
+  position: absolute;
+  font-size: 0.875rem;
+  color: #4a4a4a;
+  width: 45.6%;
+  top: 1rem;
+  right: 0.625rem;
+}
+.prom_price{
+  position: absolute;
+  bottom: 1.2rem;
+  right: 3.5rem;
+  font-size: 0.875rem;
+  color: #d2404d;
+}
+.prom_price span{
+  font-size: 12px;
+}
+#end_line{
+  width: 100%;
+  margin: 1rem 0 4rem 0;
+}
+.type{
+  position: relative;
+  margin: 1rem 4%;
+}
+.type div{
+  position: relative;
+}
+.type_img{
+  width: 100%;
+}
+.type_name{
+  font-size: 0.9375rem;
+  color: #000000;
+  margin: 0.25rem;
+}
+.type_price{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75rem;
+  color: #808080;
+  margin: -0.25rem 0.5rem;
+}
+.type_number{
+  font-size: 1.125rem;
+  color: #000000;
+}
+.type_intro{
+  border-top: 1px dotted #808080;
+  padding: 1rem 0 0.25rem 0;
+  font-size: 0.875rem;
+  color: #4a4a4a;
+  letter-spacing:1.5px;
+}

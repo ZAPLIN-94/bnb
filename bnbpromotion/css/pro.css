@@ -1,0 +1,403 @@
+
+.grade,.btn{
+    font-size:12px;
+}
+.proLike span{
+    font-size:10px;
+    margin-top:5px;
+    /* padding-left: 13px; */
+}
+.grade,.highLightsContent,.otaPrice,.promotionEquity li,.conditionList ul,.promTime li,.promComment dl{
+    color: #464646;
+}
+.grade,.highLightsContent,.promotionEquity li,.conditionList ul,.promTime li,.promComment dl{
+    color: #646566;
+}
+
+.ota .otaPrice span{
+    font-size: 18px;
+    margin-right: 5px;
+}
+.titleWrap{
+    margin:35px 15px 0;
+    display:-webkit-box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-o-box;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #ccc;
+}
+.title{
+    -webkit-box-flex:5;
+    -moz-box-flex:5;
+    -ms-box-flex:5;
+    -o-box-flex:5;
+    color:#000;
+    line-height: 24px;
+    padding-right: 10px;
+     box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+
+}
+.proLike{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    -ms-box-flex:1;
+    -o-box-flex:1;
+    text-align: center;
+    border-left: 1px solid #c8c7cc;
+}
+.proLike i{
+    display: block;
+    height:25px;
+    background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_want.png) center 0 no-repeat;
+    -webkit-background-size: 30px;
+    background-size: 30px;
+}
+.proLike span{
+    color:#898989;
+}
+.grade{
+    margin:25px 15px 30px;
+    background:#fff url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_huasuanq.png) 0 center no-repeat;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    line-height: 20px;
+}
+.proJia i{
+    margin-right: 5px;
+}
+.zhenHan{
+    background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_zhenhanq.png) 0 center no-repeat;
+}
+.chaoZhi{
+    background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_chaozhiq.png) 0 center no-repeat;
+}
+.highLights,.ota,.promotionEquity,.conditionList,.promTime,.promComment,.proFooterTop{
+    padding-top: 12.5px;
+    background-color: #F0F1F2;
+    border-top: 1px solid #E6E6E6;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+}
+h2,.highLightsContent,.btn,.otaPrice,.promotionEquity ul,.conditionList ul,.promTime ul,.promComment dl,.proFooter{
+    background-color: #fff;
+}
+h2{
+    padding:20px 15px 15px;
+    font-weight: normal;
+    color: #202020;
+}
+.highLightsContent{
+    padding: 0px 15px 20px;
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.btn,.proFooter .footerCenter span{
+    color: #d13f4c;
+    text-align: center;
+    padding: 15px 0 25px;
+}
+#btn2,#btn1{
+    padding: 0 0 15px;
+}
+.btn i{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    font-size: 12px;
+    margin-top: -2px;
+}
+.otaPrice{
+    padding :15px 15px 14px;
+    position: relative;
+}
+.otaPrice i{
+   position: absolute;
+   right: 15px;
+   top:50%;
+    color:#9aaaaa;
+    -webkit-transform: translate(0,-50%);
+    -moz-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    font-size:20px;
+
+}
+.promotionEquity ul{
+    padding :0 15px 20px 20px;
+    font-size: 14px;
+}
+.promotionEquity li{
+   position: relative;
+    overflow: hidden;
+    line-height: 26px;
+
+}
+.promotionEquity li:before{
+    content:"";
+    position: absolute;
+    left:0;
+    top:10px;
+    width: 4px;
+    height: 4px;
+    background-color: #808080;
+}
+.promotionEquity li span{
+    margin-left: 20px;
+    float: left;
+}
+.conditionList ul,.promTime ul,.promComment dl{
+    padding: 0 15px 10px;
+    line-height:26px;
+}
+.conditionList li{
+    overflow: hidden;
+    line-height:26px;
+}
+
+.conditionList li strong{
+    float: left;
+}
+.conditionList li span{
+   float: right;
+   color: #d13f4c;
+}
+.promTime li{
+    line-height:22px;
+}
+.promTime ul{
+    padding:0 15px 10px;
+    overflow: hidden;
+    font-size: 14px;
+}
+.promTime li strong{
+    float: left;
+}
+.promTime li span{
+    float: left;
+}
+.promComment dl{
+    display:-webkit-box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-o-box;
+    padding-bottom: 10px;
+}
+.promComment dl dt{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    -ms-box-flex:1;
+    -o-box-flex:1;
+    min-width: 50px;
+    max-width: 50px;
+    height: 50px;
+    border:1px solid #FFF;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    margin-right: 15px;
+}
+.promComment dl dd{
+    -webkit-box-flex:5;
+    -moz-box-flex:5;
+    -ms-box-flex:5;
+    -o-box-flex:5;
+    border-bottom: 1px solid #e6e6e6;
+}
+.commentContent{
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #808080;
+}
+.promComment dd span{
+    display: block;
+}
+.promComment dd .btn{
+    padding: 0 0 10px;
+}
+.promComment dd .btn span{
+    display: inline-block;
+}
+.commentTime{
+    float:right;
+    font-size: 12px;
+    color: #9b9b9b;
+}
+.commentTop{
+    overflow: hidden;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+.proFooter{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    display:-webkit-box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-o-box;
+    padding:7.5px 15px 7.5px 0;
+    border-top:1px solid #e1e3e6;
+    z-index: 99;
+}
+
+.proFooter .footerLeft{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    -ms-box-flex:1;
+    -o-box-flex:1;
+    min-width: 66px;
+    max-width: 66px;
+    text-align: center;
+    border-right: 1px solid #d4d4d4;
+    font-size: 12px;
+}
+
+.proFooter .footerLeft:before{
+    content: "";
+    display: block;
+    height:25px;
+    background:  url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_commentgrey.png) center 0px no-repeat;
+    -webkit-background-size: 20px;
+    background-size: 20px;
+}
+.proFooter .footerCenter{
+    -webkit-box-flex:4;
+    -moz-box-flex:4;
+    -ms-box-flex:4;
+    -o-box-flex:4;
+
+}
+.proFooter .footerCenter span{
+    display: block;
+    padding: 0;
+}
+.proFooter .footerCenter span i{
+    font-size: 20px;
+}
+.proFooter .footerRight,.proFooter .footerRight2{
+    -webkit-box-flex:3;
+    -moz-box-flex:3;
+    -ms-box-flex:3;
+    -o-box-flex:3;
+    height: 35px;
+    line-height: 35px !important;
+    text-align: center;
+    background-color: #d13f4c;
+    color: #fff;
+    border-radius: 5px;
+    line-height: 24px;
+}
+.proFooter .footerRight2{
+    background-color: #ccc;
+    display:none;
+}
+.proFooter .footerCenter .yuanJia,.footerLeft{
+    color: #8b8b8b;
+}
+.proFooter .footerCenter .yuanJia{
+    font-size: 14px;
+    text-decoration: line-through;
+}
+.proFooter .footerCenter .plusJia{
+    font-size: 12px;
+    color:#92835b ;
+}
+.proMask{
+    position: fixed;
+    top:0;
+    background-color: rgba(0, 0, 0, .7);
+    width:100%;
+    z-index: 999;
+    display: none;
+}
+.proMask .proCon{
+    position: absolute;
+    padding: 30px 15px;
+    width: 90%;
+    background-color: #fff;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-70%);
+    -moz-transform: translate(-50%,-70%);
+    -ms-transform: translate(-50%,-70%);
+    -o-transform: translate(-50%,-70%);
+    -webkit-transform: translate(-50%,-70%);
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+
+    
+}
+.proMaskTitle {
+    width: 100%;
+    padding-bottom: 30px;
+    text-align: center;
+    color:#000;
+    font-size: 18px;
+}
+.proMaskCon{
+    color: #2c2c2c;
+    font-size: 14px;
+}
+.proMaskBtn,.proMaskBtn1{
+    width: 85%;
+    background-color: #d13f4c;
+    text-align: center;
+    color:#fff;
+    padding: 15px 0;
+    margin: 50px auto 0;
+    
+}
+.proMaskCloseBtn{
+    position: absolute;
+    bottom:100px;
+    width: 100%;
+    height:50px;
+    background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_close.png) center 0 no-repeat;
+    -webkit-background-size:40px;
+    background-size: 40px;
+}
+.proMaskBtn1 a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+
+
+.proLike .likeCurrent{
+    background: url(http://7xio74.com2.z0.glb.qiniucdn.com/leapp_wantCurrent.png) center 0 no-repeat;
+    -webkit-background-size: 30px;
+    background-size: 30px;
+}
+.proHotelPng {
+  padding: 13.5px 15px;
+  background-color: #F0F1F2;
+  border-top: 1px solid #E6E6E6;
+}
+.hotelDetail{
+    padding-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+

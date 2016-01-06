@@ -100,14 +100,6 @@ if(isAndroid) {
                 var name = data.data.hotelBaseInfo.hotelOwner.name;
                 var roomList = data.data.hotelBaseInfo.roomList;
                 var recommendPromotions = data.data.hotelBaseInfo.recommendPromotions;
-                //首图
-                $("#top_img_index").find("span").eq(1).append(imgList.length);
-                for(var i= 0;i<imgList.length;i++){
-                    var j=i+1;
-                    $(".hd ul").append("<li>"+j+"</li>");
-                    $(".bd ul").append("<li><img/></li>");
-                    $(".bd ul").find("img").eq(i).attr("src",imgList[i]);
-                }
                 //header信息
                 $("#intro h1").append(productName);
                 $(".shopkeeper_img").attr("src",shopkeeper);
@@ -119,7 +111,7 @@ if(isAndroid) {
                 }else {
                     $("#like .want img").attr("src","../h5_2.0/images/star.png");
                 }
-                if(data.data.hotelBaseInfo.userFavorites[1].status == 0){
+                if(data.data.hotelBaseInfo.userFavorites[0].status == 0){
                     $("#like .togo img").attr("src","../h5_2.0/images/ungone.png");
                 }else {
                     $("#like .togo img").attr("src","../h5_2.0/images/gone.png");
