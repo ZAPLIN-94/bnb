@@ -24,6 +24,22 @@ $(document).ready(function(){
     });
 });
 
+//首图滑动效果
+var topImgIndex = function(){
+    var index = $("li.on").text();
+    $("#top_img_index").find("span").eq(0).text(index);
+};
+
+// IOS桥接调用
+function iosBridgeObjc(url) {
+    var iframe;
+    iframe = document.createElement("iframe");
+    iframe.setAttribute("src", url);
+    iframe.setAttribute("style", "display:none;");
+    document.body.appendChild(iframe);
+    iframe.parentNode.removeChild(iframe);
+}
+
 var u = navigator.userAgent, app = navigator.appVersion;
 
 var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
@@ -78,13 +94,16 @@ if(isAndroid) {
     //--------IOS中的逻辑-------------
     $(document).ready(function(){
         //var id = 15052;
-        $.ajax({
+        //setTimeout(ask(),1000)
+        //function ask(){
+            $.ajax({
             type: 'POST',
             url: '/content/client/hotel/detail',
             data: {data:'{"id":'+id+'}'},
             dataType: 'json',
-            async:false,
+            async:true,
             success: function (data) {
+                // console.log(data);
                 document.title= data.data.hotelBaseInfo.hotelCname;
                 var imgList = data.data.productBaseInfo.imgList;
                 var productName = data.data.productBaseInfo.productName;
@@ -92,7 +111,8 @@ if(isAndroid) {
                 //var shopkeeper = data.data.hotelBaseInfo.brandIcon;
                 var shopkeeper = data.data.hotelBaseInfo.hotelOwner.headimgurl;
                 var tagInfoList = data.data.hotelBaseInfo.tagInfoList;
-                var shopkeeperUrl = data.data.hotelBaseInfo.brandH5url;
+                //var shopkeeperUrl = data.data.hotelBaseInfo.brandH5url;
+                var shopkeeperUrl = "/h5_2.0/shopkeeper.html?id="+data.data.hotelBaseInfo.hotelOwner.ownerId;
                 var prmtDesc = data.data.hotelBaseInfo.prmtDesc;
                 var address = data.data.hotelBaseInfo.address;
                 var phone = data.data.hotelBaseInfo.phone;
@@ -100,6 +120,7 @@ if(isAndroid) {
                 var name = data.data.hotelBaseInfo.hotelOwner.name;
                 var roomList = data.data.hotelBaseInfo.roomList;
                 var recommendPromotions = data.data.hotelBaseInfo.recommendPromotions;
+                var cityName = data.data.hotelBaseInfo.cityName;
                 //首图
                 $("#top_img_index").find("span").eq(1).append(imgList.length);
                 for(var i= 0;i<imgList.length;i++){
@@ -182,18 +203,21 @@ if(isAndroid) {
                 //调用地图
                 $(document).ready(function () {
                     document.getElementById("map").onclick = function () {
-                        data = '{"longitude":"' + cityLon + '","latitude":"' + cityLat + '","BuildingName":"' + productName + '","city":"' + data.data.hotelBaseInfo.cityName + '","address":"' + address + '"}';
-                        jihe.toMap(data);
-                    }
+                        var data = '{"longitude":"' + cityLon + '","latitude":"' + cityLat + '","BuildingName":"' + productName + '","city":"' + cityName + '","address":"' + address + '","act":"toMap"}';
+                        var url = "http://www.jihelife.com?data="+data;
+                        iosBridgeObjc(url);              
+                    };
                 });
+
 
                 //弹窗
                 //$("#tanchuang p span").html(productName);
                 if(data.data.productBaseInfo.reserveWay == 1){
                     //调用APP价格日历
                     $("footer button").click(function() {
-                        var json='{"id":"' + id + '"}'
-                        jihe.toCalendar(json)
+                        var data = '{"act":"toCalendar","id":"' + id + '"}';
+                        var url = "http://www.jihelife.com?data="+data;
+                        iosBridgeObjc(url);
                     })
                 }else if(data.data.productBaseInfo.reserveWay == 2){
                     var phone = data.data.productBaseInfo.reserveWayValue;
@@ -219,22 +243,21 @@ if(isAndroid) {
                 $(".want").click(function(){
                     iOSWantTo(urlHotelLike,paramHotelLike)
                 })
+
+                //首图滑动索引号
+                $(document).ready(function(){
+                    TouchSlide({ slideCell:"#top_img",titCell:".hd li",mainCell:".bd ul"});
+                    setInterval("topImgIndex()",800);
+                });
             },
             error: function () {}
         });
+       // }
+        
     })
 }
 
-//首图滑动效果
-var topImgIndex = function(){
-    var index = $("li.on").text();
-    $("#top_img_index").find("span").eq(0).text(index);
-};
 
-$(document).ready(function(){
-    TouchSlide({ slideCell:"#top_img",titCell:".hd li",mainCell:".bd ul"});
-    setInterval("topImgIndex()",800);
-});
 
 
 

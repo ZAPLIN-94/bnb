@@ -1,10 +1,11 @@
-function iOSProData(url,data){
-	pageData = new Array()
+
+//优惠详情
+function 	shareProData(url,data){
+	pageData = new Array();
 	$.post(url, {data: data}, function(data) {
-		//console.debug(data);
-		document.title= JSON.stringify(data.data.shareInfo.title);
-		var shareTitle=data.data.shareInfo.title;
-		var productType=data.data.productBaseInfo.productType;
+		document.title= JSON.stringify(data.data.shareInfo.title)
+		var shareTitle=data.data.shareInfo.title
+		var productType=data.data.productBaseInfo.productType
 		$.each(data.data.productBaseInfo.imgList,function(i){
 			$("#focus .bd ul").append('<li><a href="javascript:;"><img _src="'+data.data.productBaseInfo.imgList[i]+'?imageView2/1/w/'+aa*2+'/h/'+h+'" /></a></li>');
 			TouchSlide({
@@ -15,7 +16,7 @@ function iOSProData(url,data){
 				autoPage:true,
 				switchLoad:"_src"
 			});
-		});
+		})
 		$(".focus .bd li ").css("height",h*0.525);
 		$(".title").html(data.data.productBaseInfo.productName);
 		//距离distance
@@ -46,7 +47,7 @@ function iOSProData(url,data){
 		var hour=end.getHours();
 		var minute=end.getMinutes();
 		var second=end.getSeconds();
-		time(year,month,day,hour,minute,second);
+		time(year,month,day,hour,minute,second)
 		if(days<=30&&data.data.productBaseInfo.status==1){
 			$(".time").html(days);
 		}
@@ -57,7 +58,7 @@ function iOSProData(url,data){
 		$(".promTime ul li .yuding").html(Beginy+"."+Beginm+"."+Begind+"--"+year+"."+month+"."+day);
 		$(".promTime ul li .ruzhu").html(data.data.promotionBaseInfo.timeTitle);
 		//brandIcon
-		$("header .icon").css({"background":"url("+data.data.hotelBaseInfo.brandIcon+") 0 0 no-repeat","background-size":w*0.13,"-webkit-background-size":w*0.13});
+		$("header .icon").css({"background":"url("+data.data.hotelBaseInfo.brandIcon+") 0 0 no-repeat","background-size":w*0.13,"-webkit-background-size":w*0.13})
 		//ota价格hotelPrice判断类型是否是下午茶objectType 2是优惠
 		if(data.data.hotelBaseInfo==""){
 			$(".ota").css("display","none");
@@ -67,22 +68,22 @@ function iOSProData(url,data){
 
 
 			if(data.data.promotionBaseInfo.subType==210){
-                if(data.data.hotelBaseInfo.price==-1){
-                    $(".otaPrice strong").html("可能有房").css("color","#d13f4c");
-                }
-                else{
-                    $(".otaPrice span").html(data.data.hotelBaseInfo.price);
-                }
-            }
-            else{
-                $(".ota").css("display","none");
-            }
-			/*if(data.data.hotelBaseInfo.price==-1){
-				$(".otaPrice span").html("可能有房").css("color","#d13f4c");
+				if(data.data.hotelBaseInfo.price==-1){
+					$(".otaPrice strong").html("可能有房").css("color","#d13f4c");
+				}
+				else{
+					$(".otaPrice span").html(data.data.hotelBaseInfo.price);
+				}
 			}
 			else{
-				$(".otaPrice span").html(data.data.hotelBaseInfo.price +"起 / 晚");
-			}*/
+				$(".ota").css("display","none");
+			}
+			/*if(data.data.hotelBaseInfo.price==-1){
+			 $(".otaPrice span").html("可能有房").css("color","#d13f4c");
+			 }
+			 else{
+			 $(".otaPrice span").html(data.data.hotelBaseInfo.price +"起 / 晚");
+			 }*/
 		}
 		else{
 			$(".ota").css("display","none");
@@ -220,111 +221,16 @@ function iOSProData(url,data){
 		//productType 1代订 2直订 3实物类直订
 		//判断预定步骤step先判断是否是登录
 		//是否是2直订1代订
+		$(document).ready(function(){
+			$(".proFooter .footerRight").click(function(){
+				//唤醒App
+				window.location="/h5_2.0/tiao.html?id="+id+"&act=toHotelDetail&actFrom=hotelDetail"
+			})
+		});
 		if(data.data.productBaseInfo.productType==2||data.data.productBaseInfo.productType==3||data.data.productBaseInfo.productType==5){
 			$(".footerRight").html("订购");
 			$(".footerRight2").html("订购");
-			$(".proFooter .footerRight").click(function(){
-				//先判断是否登录
-				var urlInfo ="/leapp/le.user.info";
-				var paramInfo = '{}';
-				$.post(urlInfo, {
-					data: paramInfo
-				}, function (result) {
-
-					if(result.data.user.loginstatus==1){
-						var data1={"act":"toOrder","productType":productType,"id":id}
-						var url = "http://www.jihelife.com?data="+JSON.stringify(data1);
-
-						invokeObjc(url);
-
-					}
-					else{
-						var data1={"act":"toLogin"}
-						var url = "http://www.jihelife.com?data="+JSON.stringify(data1);
-
-						invokeObjc(url);
-						/*jihe.toLogin()*/
-					}
-				});
-			})
 		}
-		else{
-			$(".proFooter .footerRight").click(function(){
-				//先判断是否登录
-				var urlInfo ="/leapp/le.user.info";
-				var paramInfo = '{}';
-				$.post(urlInfo, {
-					data: paramInfo
-				}, function (result) {
-
-					if(result.data.user.loginstatus==1){
-						var stepUrl ="/leapp/promotion.step";
-						var data1='{"id":"' + id + '"}';
-						$.post(stepUrl, {
-							data: data1
-						}, function (result) {
-
-							if(result.data.stepInfo.step==""){
-								/*var stepData ='{"h5url":"'+host+'/h5/tip.html?id='+id+'","id":"'+id+'","title":"'+shareTitle+'","productType":"'+productType+'"}'
-								jihe.toOutSide(stepData)*/
-								window.location=host+'/h5/tip.html?id='+id
-							}
-							else{
-								$(".proMask").css("display","block");
-								$(".proMaskTitle").html("预订步骤");
-								$(".proMaskCon").html(result.data.stepInfo.step);
-								if(result.data.stepInfo.reserveWay==1) {
-									$(".proMaskBtn1").css("display","none");
-                            		$(".proMaskCon").css("height","200px");
-                            	
-                            		if(h<=480){
-                               			$(".proMaskCloseBtn").css("bottom","5px"); 
-                            		}
-                            		else{
-                              			$(".proMaskCloseBtn").css("bottom","30px");  
-                            		}
-                            		/*$(".proMaskCloseBtn").css("bottom","60px");*/
-                            		$(".proMask .proCon ").css({"transform":"translate(-50%,-50%)","-webkit-transform":"translate(-50%,-50%)","-moz-transform":"translate(-50%,-50%)","-ms-transform":"translate(-50%,-50%)","transform":"-o-translate(-50%,-50%)"});
-									$(".proMaskBtn").html("前往购买");
-									$(".proMaskBtn").click(function(){
-										window.location=host+'/h5/tip.html?id='+id;
-										/*var stepData ='{"h5url":"'+host+'/h5/tip.html?id='+id+'","id":"'+id+'","title":"'+shareTitle+'","productType":"'+productType+'"}'
-										jihe.toOutSide(stepData)*/
-									})
-
-								}
-								else{
-									$(".proMaskBtn").css("display","none");
-                            		$(".proMaskCon").css("height","200px");
-                   
-                            		if(h<=480){
-                               			$(".proMaskCloseBtn").css("bottom","5px"); 
-                            		}
-                            		else{
-                              			$(".proMaskCloseBtn").css("bottom","30px");  
-                            		}
-                            		/*$(".proMaskCloseBtn").css("bottom","60px");*/
-                            		$(".proMask .proCon ").css({"transform":"translate(-50%,-50%)","-webkit-transform":"translate(-50%,-50%)","-moz-transform":"translate(-50%,-50%)","-ms-transform":"translate(-50%,-50%)","transform":"-o-translate(-50%,-50%)"});
-									$(".proMaskBtn1 a").html("前往购买").attr("href","tel://"+result.data.stepInfo.reserveWayValue);
-									/*$(".proMaskBtn").append("<a href='tel://"+result.data.stepInfo.reserveWayValue+"'>前往购买</a>");*/
-								}
-
-							}
-						});
-
-					}
-					else{
-						var data1={"act":"toLogin"}
-						var url = "http://www.jihelife.com?data="+JSON.stringify(data1);
-
-						invokeObjc(url);
-						/*jihe.toLogin()*/
-					}
-				});
-			})
-		}
-
-
 		if(data.data.productBaseInfo.status==3){
 			$(".status").addClass('status2');
 			$(".footerRight").css("display","none");
@@ -352,26 +258,104 @@ function iOSProData(url,data){
 
 
 
+		 if (data.data.productBaseInfo.referPrice == undefined) {
+
+		 $(".footerCenter .yuanJia ").css("display", "none ");
+		 if (data.data.productBaseInfo.pieces == 1) {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+		 }
+		 else {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
+		 }
+		 $(".footerCenter .proJia").css("line-height", "2.5rem");
+		 }
+		 else {
+		 if (data.data.productBaseInfo.pieces == 1) {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+		 $(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
+		 }
+		 else {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
+		 $(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
+		 }
+		 }
+
+		 }
+		 else {
+		 if (data.data.productBaseInfo.plusPrice == -1) {
+		 if(data.data.productBaseInfo.price==undefined){
+		 $(".footerCenter .plusJia").html("几何PLUS用户享受更低价").css("line-height", "2.5rem");
+		 $(".footerRight").css("display", "none");
+		 $(".footerRight2").css("display", "block");
+		 $(".footerCenter .yuanJia ").css("display", "none ");
+		 $(".footerCenter .proJia ").css("display", "none ");
+		 }
+		 else{
+		 $(".footerCenter .plusJia").html(" 几何PLUS用户享受更低价");
+		 if (data.data.productBaseInfo.pieces == 1) {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+		 }
+		 else {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
+		 }
+		 $(".footerCenter .yuanJia ").css("display", "none ");
+		 }
+		 }
+		 else {
+		 if(data.data.productBaseInfo.price==undefined){
+		 if (data.data.productBaseInfo.pieces == 1) {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
+		 }
+		 else {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
+		 }
+		 $(".footerCenter .plusJia ").css("display", "none ");
+		 $(".footerCenter .yuanJia ").css("display", "none ");
+		 }
+		 else{
+		 if (data.data.productBaseInfo.pieces == 1) {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
+		 $(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+		 }
+		 else {
+		 $(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +  data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
+		 $(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
+		 }
+		 $(".footerCenter .plusJia ").css("display", "none ");
+		 }
+		 }
+		 }*/
+
+		if (data.data.productBaseInfo.plusPrice == undefined) {
 			if (data.data.productBaseInfo.referPrice == undefined) {
 
 				$(".footerCenter .yuanJia ").css("display", "none ");
 				if (data.data.productBaseInfo.pieces == 1) {
-					$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+					$(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
+					$(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
 				}
 				else {
-					$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
+					$(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
+					$(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
+					/*$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);*/
 				}
 				$(".footerCenter .proJia").css("line-height", "2.5rem");
 			}
 			else {
 				if (data.data.productBaseInfo.pieces == 1) {
-					$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+					$(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
+					$(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
+					/* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);*/
 					$(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
 				}
 				else {
-					$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
+					$(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
+					$(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
+					/* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);*/
 					$(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
 				}
+
+
 			}
 
 		}
@@ -385,160 +369,64 @@ function iOSProData(url,data){
 					$(".footerCenter .proJia ").css("display", "none ");
 				}
 				else{
-					$(".footerCenter .plusJia").html(" 几何PLUS用户享受更低价");
+					$(".footerCenter .proJia").html(" 几何PLUS用户享受更低价");
 					if (data.data.productBaseInfo.pieces == 1) {
-						$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+						$(".footerCenter .proJia i").html(data.data.productBaseInfo.price);
+						$(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
+						/*$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);*/
 					}
 					else {
-						$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-					}
+						$(".footerCenter .proJia i").html(data.data.productBaseInfo.price);
+						$(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
+						/* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
+						 */}
 					$(".footerCenter .yuanJia ").css("display", "none ");
 				}
+
 			}
 			else {
 				if(data.data.productBaseInfo.price==undefined){
 					if (data.data.productBaseInfo.pieces == 1) {
-						$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-					}
+						$(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice);
+						$(".footerCenter .proJia em").html( data.data.productBaseInfo.piecesUnit);
+
+						/*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
+						 */}
 					else {
-						$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-					}
-					$(".footerCenter .plusJia ").css("display", "none ");
+						$(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice );
+						$(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
+
+						/* $(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
+						 */  }
+
 					$(".footerCenter .yuanJia ").css("display", "none ");
 				}
 				else{
+
 					if (data.data.productBaseInfo.pieces == 1) {
-						$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-						$(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
+						$(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice);
+						$(".footerCenter .proJia em").html( data.data.productBaseInfo.piecesUnit);
+
+						/*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
+						 */$(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
 					}
 					else {
-						$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +  data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
-						$(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
+						$(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice );
+						$(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
+
+						/*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +  data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
+						 */ $(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
 					}
 					$(".footerCenter .plusJia ").css("display", "none ");
 				}
+
 			}
-		}*/
-
-if (data.data.productBaseInfo.plusPrice == undefined) {
-            if (data.data.productBaseInfo.referPrice == undefined) {
-
-                $(".footerCenter .yuanJia ").css("display", "none ");
-                if (data.data.productBaseInfo.pieces == 1) {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                }
-                else {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
-                    /*$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);*/
-                }
-                $(".footerCenter .proJia").css("line-height", "2.5rem");
-            }
-            else {
-                if (data.data.productBaseInfo.pieces == 1) {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                   /* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);*/
-                    $(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-                }
-                else {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                   /* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);*/
-                    $(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
-                }
 
 
-            }
-
-        }
-        else {
-            if (data.data.productBaseInfo.plusPrice == -1) {
-                if(data.data.productBaseInfo.price==undefined){
-                    $(".footerCenter .plusJia").html("几何PLUS用户享受更低价").css("line-height", "2.5rem");
-                    $(".footerRight").css("display", "none");
-                    $(".footerRight2").css("display", "block");
-                    $(".footerCenter .yuanJia ").css("display", "none ");
-                    $(".footerCenter .proJia ").css("display", "none ");
-                }
-                else{
-                    $(".footerCenter .proJia").html(" 几何PLUS用户享受更低价");
-                    if (data.data.productBaseInfo.pieces == 1) {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.price);
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);*/
-                    }
-                    else {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.price);
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                       /* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                    */}
-                    $(".footerCenter .yuanJia ").css("display", "none ");
-                }
-
-            }
-            else {
-                if(data.data.productBaseInfo.price==undefined){
-                    if (data.data.productBaseInfo.pieces == 1) {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice);
-                        $(".footerCenter .proJia em").html( data.data.productBaseInfo.piecesUnit);
-                        
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-                    */}
-                    else {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice );
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                        
-                       /* $(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                  */  }
-
-                    $(".footerCenter .yuanJia ").css("display", "none ");
-                }
-                else{
-
-                    if (data.data.productBaseInfo.pieces == 1) {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice);
-                        $(".footerCenter .proJia em").html( data.data.productBaseInfo.piecesUnit);
-                        
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-                        */$(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
-                    }
-                    else {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice );
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                        
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +  data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
-                       */ $(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
-                    }
-                    $(".footerCenter .plusJia ").css("display", "none ");
-                }
-
-            }
-
-
-        }
+		}
 
 		$(document).ready(function() {
-			$(".ota").click(function(){
-				/*var json='{"id":"' + data.data.hotelBaseInfo.hotelId + '"}'*/
-				var data1={"act":"toCalendar","id":data.data.hotelBaseInfo.hotelId}
-				var url = "http://www.jihelife.com?data="+JSON.stringify(data1);
-
-				invokeObjc(url);
-				/*jihe.toCalendar(json)*/
-			})
-		var paramHotelWant = '{"id":"' + data.data.hotelBaseInfo.hotelId + '","type":"1"}';
-		var urlHotelWant =  "/leapp/le.user.like";
-		var paramHotelLike = '{"id":"' + data.data.hotelBaseInfo.hotelId + '","type":"2"}';
-		var urlHotelLike =  "/leapp/le.user.like";
-		$(".togo").click(function(){
-			iOSToGo(urlHotelWant,paramHotelWant)
-		})
-		$(".want").click(function(){
-			iOSWantTo(urlHotelLike,paramHotelLike)
-		})
-		if(data.data.hotelBaseInfo.brandId>0){
+			if(data.data.hotelBaseInfo.brandId>0){
 				$(".icon").click(function(event) {
 					window.location="brandDetail.html?id="+data.data.hotelBaseInfo.brandId
 				})
@@ -638,15 +526,6 @@ if (data.data.productBaseInfo.plusPrice == undefined) {
 			}
 			$("#content_2").append("<div class=\"gap_3\"></div>");
 		}
-		//调用地图
-		$(document).ready(function () {
-			document.getElementById("map").onclick = function () {
-				var data = '{"longitude":"' + cityLon + '","latitude":"' + cityLat + '","BuildingName":"' + productName + '","city":"' + cityName + '","address":"' + address + '","act":"toMap"}';
-				var url = "http://www.jihelife.com?data="+data;
-				iosBridgeObjc(url);
-			};
-		});
-
 		//$(".detail").html(description);
 		//var latitude=data.data.hotelBaseInfo.locLat;
 		//var longitude=data.data.hotelBaseInfo.locLon;
@@ -670,80 +549,53 @@ if (data.data.productBaseInfo.plusPrice == undefined) {
 			for (var g = $(".Promotion dl").length; g > 0; g--) {
 				$(".Promotion dl").eq(g-1).children("dt").css({"background":'url('+data.data.hotelBaseInfo.recommendPromotions[g-1].imgUri+') center center no-repeat',"background-size":"cover","-webkit-background-size":"cover"})
 				//判断价格是否有plus价,没就判断是否有优惠价，若是-1就看是否有优惠价，没就显示plus用户享受更低价
-					if(data.data.hotelBaseInfo.recommendPromotions[g - 1].price==undefined){
-						if(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice==-1){
-							$(".Promotion dl").eq(g - 1).css("display","none");
+				if(data.data.hotelBaseInfo.recommendPromotions[g - 1].price==undefined){
+					if(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice==-1){
+						$(".Promotion dl").eq(g - 1).css("display","none");
+					}
+					else{
+						if (data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces == 1) {
+							$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
 						}
-						else{
-							if (data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces == 1) {
-								$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
-							}
-							else {
-								$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
-							}
+						else {
+							$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
+						}
+					}
+				}
+				else{
+					if(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice==-1||data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice==undefined){
+						if (data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces == 1) {
+							$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].price + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
+						}
+						else {
+							$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].price + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
 						}
 					}
 					else{
-						if(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice==-1||data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice==undefined){
-							if (data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces == 1) {
-								$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].price + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
-							}
-							else {
-								$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].price + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
-							}
+						if (data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces == 1) {
+							$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
 						}
-						else{
-							if (data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces == 1) {
-								$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
-							}
-							else {
-								$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
-							}
+						else {
+							$(".Promotion dl").eq(g - 1).children("dd").children(".itemRightBottom").html(data.data.hotelBaseInfo.recommendPromotions[g - 1].plusPrice + '起/ ' + data.data.hotelBaseInfo.recommendPromotions[g - 1].pieces + data.data.hotelBaseInfo.recommendPromotions[g - 1].piecesUnit);
 						}
-						
 					}
+
+				}
 			}
 			$(document).ready(function() {
 				$(".Promotion dl").click(function(event) {
-                   window.location=data.data.hotelBaseInfo.recommendPromotions[$(this).index()].h5url
-                });
+					window.location=data.data.hotelBaseInfo.recommendPromotions[$(this).index()].h5url
+				});
 			});
 		}
 		$(".want b").html(wantCount);
 		$(".togo b").html(goToCount);
-		//判断状态
-		if(data.data.promotionBaseInfo.userFavorites[0].status==1){
-			$(".proLike i").addClass("likeCurrent");
-		}
-		if(data.data.hotelBaseInfo.userFavorites[0].status==1){
-			$(".togo i").addClass("togoCurrent");
-		}
-		if(data.data.hotelBaseInfo.userFavorites[1].status==1){
-			$(".want i").addClass("wantCurrent");
-		}
-		//$(document).ready(function() {
-		//	document.getElementById("mapPic").click = function(e) {
-		//		var data1={"act":"toMap","longitude":longitude,"latitude":latitude,"BuildingName":hotelName,"city":data.data.hotelBaseInfo.cityName,"address":address};
-		//		var url = "http://www.jihelife.com?data="+JSON.stringify(data1);
-        //
-		//		invokeObjc(url);
-		//		/*data='{"longitude":"'+longitude+'","latitude":"'+latitude+'","BuildingName":"'+hotelName+'","city":"'+data.data.hotelBaseInfo.cityName+'","address":"'+address+'"}';
-		//		jihe.toMap(data);*/
-		//	}
-		//});
 	});
 }
+
 var data='{"id":"' + id + '"}';
 var url="/content/client/promotion/detail";
-iOSProData(url,data);
-
-var dataLike = '{"type":"3","id":"'+id+'"}';
-var urlLike = "/leapp/le.user.like";
-$(document).ready(function() {
-	$(".proLike").click(function(){
-		iOSChangLikeCount(urlLike, dataLike)
-	})
-})
+shareProData(url,data);
 
 //切换印象和房型
 $(document).ready(function(){
@@ -758,6 +610,7 @@ $(document).ready(function(){
 		};
 		myScroll.refresh();
 	});
+
 //掌柜详情
 	$("#more").click(function(){
 		if ($(".hidden").length != 0){
@@ -772,13 +625,3 @@ $(document).ready(function(){
 		myScroll.refresh();
 	});
 });
-
-// IOS桥接调用
-function iosBridgeObjc(url) {
-	var iframe;
-	iframe = document.createElement("iframe");
-	iframe.setAttribute("src", url);
-	iframe.setAttribute("style", "display:none;");
-	document.body.appendChild(iframe);
-	iframe.parentNode.removeChild(iframe);
-}

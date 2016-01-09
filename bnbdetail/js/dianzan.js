@@ -38,12 +38,12 @@ function iOSToGo(urlHotelWant,paramHotelWant) {
         $("#like .togo span").html(result.data.goToCount);
         if(result.data.goToStatus==1){
             //$(".togo i").removeClass("togoCurrent");
-            $("#like .togo img").attr("src","../h5_2.0/images/ungone.png");
+            $("#like .togo img").attr("src","../h5_2.0/images/gone.png");
         }
         else
         {
             //$(".togo i").addClass("togoCurrent");
-            $("#like .togo img").attr("src","../h5_2.0/images/gone.png");
+            $("#like .togo img").attr("src","../h5_2.0/images/ungone.png");
         }
     });
 }

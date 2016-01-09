@@ -47,7 +47,8 @@ function Device() {
                     //var shopkeeper = data.data.hotelBaseInfo.brandIcon;
                     var shopkeeper = data.data.hotelBaseInfo.hotelOwner.headimgurl;
                     var tagInfoList = data.data.hotelBaseInfo.tagInfoList;
-                    var shopkeeperUrl = data.data.hotelBaseInfo.brandH5url;
+                    //var shopkeeperUrl = data.data.hotelBaseInfo.brandH5url;
+                    var shopkeeperUrl = "/h5_2.0/shopkeeper.html?id="+data.data.hotelBaseInfo.hotelOwner.ownerId;
                     var prmtDesc = data.data.hotelBaseInfo.prmtDesc;
                     var address = data.data.hotelBaseInfo.address;
                     var phone = data.data.hotelBaseInfo.phone;
@@ -55,6 +56,7 @@ function Device() {
                     var name = data.data.hotelBaseInfo.hotelOwner.name;
                     var roomList = data.data.hotelBaseInfo.roomList;
                     var recommendPromotions = data.data.hotelBaseInfo.recommendPromotions;
+                    var cityName = data.data.hotelBaseInfo.cityName;
                     //首图
                     $("#top_img_index").find("span").eq(1).append(imgList.length);
                     for(var i= 0;i<imgList.length;i++){
@@ -137,7 +139,7 @@ function Device() {
                     //调用地图
                     $(document).ready(function () {
                         document.getElementById("map").onclick = function () {
-                            data = '{"longitude":"' + cityLon + '","latitude":"' + cityLat + '","BuildingName":"' + productName + '","city":"' + data.data.hotelBaseInfo.cityName + '","address":"' + address + '"}';
+                            data = '{"longitude":"' + cityLon + '","latitude":"' + cityLat + '","BuildingName":"' + productName + '","city":"' + cityName + '","address":"' + address + '"}';
                             jihe.toMap(data);
                         }
                     });
@@ -176,6 +178,12 @@ function Device() {
                     $(".want").click(function(){
                         androidWantTo(urlHotelLike,paramHotelLike)
                     })
+
+                    // TouchSlide
+                    $(document).ready(function(){
+                        TouchSlide({ slideCell:"#top_img",titCell:".hd li",mainCell:".bd ul"});
+                        setInterval("topImgIndex()",800);
+                    });
                 },
                 error: function () {}
             })

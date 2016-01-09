@@ -58,7 +58,12 @@ if(isAndroid) {
             data: {data:'{"id":'+id+'}'},
             dataType: 'json',
             async:false,
-            success: function () {},
+            success: function (data) {
+                $("#top_img").attr("src",data.data.hotelBaseInfo.hotelImgs);
+                $("#shopkeeper_img").attr("src",data.data.hotelOwnerInfo.headimgurl);
+                $("#shopkeeper_name span").append(data.data.hotelOwnerInfo.name);
+                $("#intro_text").append(data.data.hotelBaseInfo.brief);
+            },
             error:function(){},
         });
     })

@@ -39,8 +39,8 @@ id =r.substring(r.lastIndexOf('=')+1, r.length);
 $(document).ready(function(){
     $.ajax({
         type: 'POST',
-        url: 'http://dev.jihelife.com/content/client/hotel/owner',
-        data: {data:'{"id":'+3365+'}'},
+        url: '/content/client/hotel/owner',
+        data: {data:'{"id":'+id+'}'},
         dataType: 'json',
         async:false,
         success:function(data){

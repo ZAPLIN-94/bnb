@@ -154,7 +154,7 @@ function 	iOSProData(url,data){
 				$(".promComment .promCommentWrap").append('<dl><dt></dt><dd><span class="commentTop"><strong>'+data.data.productBaseInfo.commentList[i].nickName+'</strong><i class="commentTime">15-10-21</i></span><span class="commentContent">'+data.data.productBaseInfo.commentList[i].context+'</span><div class="btn commentBtn" id="'+i+'" ><span>展开评论</span><i class="iconfont"></i></div></dd></dl>');
 			})
 			for(var c=$(".promComment .promCommentWrap dl").length;c>0;c--){
-				var headerIcon;;
+				var headerIcon;
 				headerIcon=data.data.productBaseInfo.commentList[c-1].headImgUrl;
 
 				if(headerIcon==undefined){
@@ -232,38 +232,12 @@ function 	iOSProData(url,data){
 		//是否是2直订1代订
 		if(data.data.productBaseInfo.productType==2||data.data.productBaseInfo.productType==3||data.data.productBaseInfo.productType==5) {
 			$(".footerRight").html("订购");
+			$(".proFooter .footerRight").click(function () {
+				//先判断是否登录
+
+
+			})
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		if(data.data.productBaseInfo.status==3){
@@ -280,7 +254,7 @@ function 	iOSProData(url,data){
 		/* var price=data.data.promotion.promotionPrice;
 		 var priceDays=data.data.promotion.countDay;*/
 		//是否是几何价
-		/*if (data.data.productBaseInfo.plusPrice == undefined) {
+		if (data.data.productBaseInfo.plusPrice == undefined) {
 
 
 
@@ -352,116 +326,7 @@ function 	iOSProData(url,data){
 			}
 
 
-		}*/
-
-if (data.data.productBaseInfo.plusPrice == undefined) {
-
-
-
-            if (data.data.productBaseInfo.referPrice == undefined) {
-
-                $(".footerCenter .yuanJia ").css("display", "none ");
-                if (data.data.productBaseInfo.pieces == 1) {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                }
-                else {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
-                    /*$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);*/
-                }
-                $(".footerCenter .proJia").css("line-height", "2.5rem");
-            }
-            else {
-                if (data.data.productBaseInfo.pieces == 1) {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                   /* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);*/
-                    $(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-                }
-                else {
-                    $(".footerCenter .proJia i").html(data.data.productBaseInfo.price );
-                    $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                   /* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);*/
-                    $(".footerCenter .yuanJia ").html(data.data.productBaseInfo.referPrice + " 起/" + data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
-                }
-
-
-            }
-
-        }
-        else {
-            if (data.data.productBaseInfo.plusPrice == -1) {
-                if(data.data.productBaseInfo.price==undefined){
-                    $(".footerCenter .plusJia").html("几何PLUS用户享受更低价").css("line-height", "2.5rem");
-                    $(".footerRight").css("display", "none");
-                    $(".footerRight2").css("display", "block");
-                    $(".footerCenter .yuanJia ").css("display", "none ");
-                    $(".footerCenter .proJia ").css("display", "none ");
-                }
-                else{
-                    $(".footerCenter .proJia").html(" 几何PLUS用户享受更低价");
-                    if (data.data.productBaseInfo.pieces == 1) {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.price);
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.piecesUnit);
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);*/
-                    }
-                    else {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.price);
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                       /* $(".footerCenter .proJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                    */}
-                    $(".footerCenter .yuanJia ").css("display", "none ");
-                }
-
-            }
-            else {
-                if(data.data.productBaseInfo.price==undefined){
-                    if (data.data.productBaseInfo.pieces == 1) {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice);
-                        $(".footerCenter .proJia em").html( data.data.productBaseInfo.piecesUnit);
-                        
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-                    */}
-                    else {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice );
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                        
-                       /* $(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                  */  }
-
-                    $(".footerCenter .yuanJia ").css("display", "none ");
-                }
-                else{
-
-                    if (data.data.productBaseInfo.pieces == 1) {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice);
-                        $(".footerCenter .proJia em").html( data.data.productBaseInfo.piecesUnit);
-                        
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" + data.data.productBaseInfo.piecesUnit);
-                        */$(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/" + data.data.productBaseInfo.piecesUnit);
-                    }
-                    else {
-                        $(".footerCenter .proJia i").html(data.data.productBaseInfo.plusPrice );
-                        $(".footerCenter .proJia em").html(data.data.productBaseInfo.pieces  + data.data.productBaseInfo.piecesUnit);
-                        
-                        /*$(".footerCenter .proJia").html(data.data.productBaseInfo.plusPrice + " 起/" +  data.data.productBaseInfo.pieces +data.data.productBaseInfo.piecesUnit);
-                       */ $(".footerCenter .yuanJia").html(data.data.productBaseInfo.price + " 起/ " + data.data.productBaseInfo.pieces + data.data.productBaseInfo.piecesUnit);
-                    }
-                    $(".footerCenter .plusJia ").css("display", "none ");
-                }
-
-            }
-
-
-        }
-
-
-
-
-
-
-
+		}
 		$(document).ready(function() {
 
 
@@ -518,7 +383,7 @@ if (data.data.productBaseInfo.plusPrice == undefined) {
 			}
 			$(document).ready(function() {
 				$(".Promotion dl").click(function(event) {
-                   window.location=data.data.hotelBaseInfo.recommendPromotions[$(this).index()].h5url
+                   window.location="activeDetail.html?id="+data.data.hotelBaseInfo.recommendPromotions[$(this).index()].productId
                 });
 			});
 			

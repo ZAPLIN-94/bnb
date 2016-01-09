@@ -44,6 +44,10 @@ function Device() {
                     requestData = (data);
                     var str1 = JSON.stringify(data);
                     //-------------操作逻辑-------------
+                    $("#top_img").attr("src",data.data.hotelBaseInfo.hotelImgs);
+                    $("#shopkeeper_img").attr("src",data.data.hotelOwnerInfo.headimgurl);
+                    $("#shopkeeper_name span").append(data.data.hotelOwnerInfo.name);
+                    $("#intro_text").append(data.data.hotelBaseInfo.brief);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log(XMLHttpRequest.status+"/"+XMLHttpRequest.readyState);
